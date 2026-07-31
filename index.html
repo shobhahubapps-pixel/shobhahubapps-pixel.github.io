@@ -4,91 +4,192 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shobha Hub Apps — Android apps on Google Play</title>
-  <meta name="description" content="Shobha Hub Apps — Useful Android apps built with love. Discover and download on Google Play." />
+  <meta name="description" content="Shobha Hub Apps builds small, lightweight, privacy-first Android apps. Discover and download them on Google Play." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css">
-  <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23F2A73B'/%3E%3C/svg%3E">
 </head>
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">
-        <img src="/assets/logo.svg" alt="Shobha Hub Apps logo" class="logo" onerror="this.style.display='none'">
-        <h1>Shobha Hub Apps</h1>
-      </div>
-      <nav>
-        <a class="btn" href="#download">Get the App</a>
-        <a class="link" href="/privacy-policy.html">Privacy Policy</a>
+      <a class="brand" href="/">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="30" height="30">
+            <rect x="1" y="1" width="30" height="30" rx="9" fill="#12141C"/>
+            <circle cx="16" cy="16" r="6" fill="none" stroke="#F2A73B" stroke-width="2"/>
+            <circle cx="16" cy="16" r="2" fill="#F2A73B"/>
+          </svg>
+        </span>
+        <span class="brand-name">Shobha Hub Apps</span>
+      </a>
+      <nav class="site-nav">
+        <a class="link" href="#apps">Apps</a>
+        <a class="link" href="#features">Why us</a>
+        <a class="link nav-hide-sm" href="/privacy-policy.html">Privacy</a>
+        <a class="btn" id="download" href="#" data-play-link>Get an app</a>
       </nav>
     </div>
   </header>
 
   <main>
+
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
-          <h2>Beautiful, Lightweight Android Apps</h2>
-          <p>We design intuitive apps to make everyday tasks easier. Fast, secure, and ad-supported where helpful.</p>
+          <span class="eyebrow">Small apps. Built with care.</span>
+          <h1>Everyday Android<br>apps, done <em>well</em>.</h1>
+          <p class="lede">We design small, fast utilities that respect your battery, your storage, and your privacy — the way apps used to be.</p>
           <div class="cta-row">
-            <a id="download" class="cta-btn" href="#" onclick="openPlayStore(event)">View on Google Play</a>
-            <a class="secondary" href="#features">Features</a>
+            <a class="cta-btn" href="#" data-play-link>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 3.5v17a1 1 0 0 0 1.5.87l14.5-8.5a1 1 0 0 0 0-1.74L5.5 2.63A1 1 0 0 0 4 3.5Z" fill="currentColor"/></svg>
+              View on Google Play
+            </a>
+            <a class="secondary" href="#features">See why it's different</a>
+          </div>
+          <div class="trust-row">
+            <span><b>4</b> apps published</span>
+            <span class="dot">·</span>
+            <span>Privacy‑first by default</span>
+            <span class="dot">·</span>
+            <span>Actively maintained</span>
           </div>
         </div>
-        <div class="hero-phone">
-          <div class="phone-mock">
-            <div class="screen">
-              <img src="/assets/screenshot.png" alt="App screenshot" onerror="this.style.display='none'">
-            </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="glow"></div>
+          <div class="tile tile-1">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="#F2A73B" stroke-width="1.6"/><path d="M11 18h2" stroke="#F2A73B" stroke-width="1.6" stroke-linecap="round"/><path d="M9 6h6" stroke="#F2A73B" stroke-width="1.6" stroke-linecap="round"/></svg>
           </div>
+          <div class="tile tile-2">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="13" r="7" stroke="#F2A73B" stroke-width="1.6"/><path d="M12 9v4l2.5 2.5" stroke="#F2A73B" stroke-width="1.6" stroke-linecap="round"/><path d="M9 3h6" stroke="#F2A73B" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div class="tile tile-3">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 20V9l7-5 7 5v11" stroke="#F2A73B" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="#F2A73B" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="tile tile-4">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="18" height="7" rx="1.5" stroke="#F2A73B" stroke-width="1.6"/><path d="M7 9V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="#F2A73B" stroke-width="1.6"/></svg>
+          </div>
+          <div class="tile tile-5">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v3M12 18v3M4.2 6.2l2 2M17.8 15.8l2 2M3 12h3M18 12h3M4.2 17.8l2-2M17.8 8.2l2-2" stroke="#F2A73B" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="#F2A73B" stroke-width="1.6"/></svg>
+          </div>
+          <svg class="constellation-lines" viewBox="0 0 400 400" preserveAspectRatio="none">
+            <path d="M90 80 L210 150 L320 90 M210 150 L150 260 L280 310" stroke="#E3C088" stroke-width="1" stroke-dasharray="3 5" fill="none" opacity="0.6"/>
+          </svg>
         </div>
       </div>
     </section>
 
     <section id="features" class="features">
       <div class="container">
-        <h3>Why choose our apps?</h3>
-        <div class="grid">
-          <div class="card">
-            <h4>Lightweight</h4>
-            <p>Small download size and minimal battery usage.</p>
+        <span class="eyebrow">Why choose our apps</span>
+        <h2>Three things we never compromise on</h2>
+        <div class="bento">
+          <div class="card card-lg">
+            <div class="card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="#12141C" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Lightweight, on purpose</h3>
+            <p>Every app is built to install fast, run quietly in the background, and leave your battery alone. No bloat, no unnecessary permissions.</p>
+            <div class="stat-row">
+              <div class="stat"><span class="stat-num">&lt;10MB</span><span class="stat-label">typical install size</span></div>
+              <div class="stat"><span class="stat-num">0</span><span class="stat-label">background trackers</span></div>
+            </div>
           </div>
           <div class="card">
-            <h4>Privacy-first</h4>
-            <p>We keep data local and collect only what is necessary.</p>
+            <div class="card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3 20 6.5V12c0 5-3.6 8.5-8 9.5C7.6 20.5 4 17 4 12V6.5L12 3Z" stroke="#12141C" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Privacy‑first</h3>
+            <p>Personal data stays on your device. We collect only what's needed to keep the app running smoothly.</p>
           </div>
           <div class="card">
-            <h4>Beautiful UI</h4>
-            <p>Simple, modern interfaces designed for everyone.</p>
+            <div class="card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2.5" stroke="#12141C" stroke-width="1.6"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#12141C" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Interfaces that get out of the way</h3>
+            <p>Clear layouts, obvious controls, no ads jammed between what you're trying to do.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="about container">
-      <div class="split">
-        <div>
-          <h3>About Shobha Hub Apps</h3>
-          <p>We build small, useful Android applications focused on utility and user experience. Our apps are tested carefully and updated regularly to keep them secure and reliable.</p>
-          <p class="muted">Contact: <a href="mailto:shobhahubapps@gmail.com">shobhahubapps@gmail.com</a></p>
+    <section id="apps" class="apps-section">
+      <div class="container">
+        <span class="eyebrow">Our apps</span>
+        <h2>Built for one job, done properly</h2>
+        <div class="apps-grid">
+          <a class="app-card" href="#" data-play-link>
+            <div class="app-icon" style="--tint:#12141C">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="#F2A73B" stroke-width="1.7"/><path d="M9 6h6" stroke="#F2A73B" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <div class="app-copy">
+              <h4>Android TV Remote</h4>
+              <p>Control any Android TV over IR or Wi‑Fi — no extra hardware.</p>
+            </div>
+            <span class="app-arrow">→</span>
+          </a>
+          <a class="app-card" href="#" data-play-link>
+            <div class="app-icon" style="--tint:#12141C">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 17h16M6 17V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8" stroke="#F2A73B" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 13h6" stroke="#F2A73B" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <div class="app-copy">
+              <h4>Utility Toolkit</h4>
+              <p>A pocket set of everyday tools, kept fast and clutter‑free.</p>
+            </div>
+            <span class="app-arrow">→</span>
+          </a>
+          <a class="app-card" href="#" data-play-link>
+            <div class="app-icon" style="--tint:#12141C">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#F2A73B" stroke-width="1.7"/><path d="M12 8v4l3 2" stroke="#F2A73B" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <div class="app-copy">
+              <h4>More on the way</h4>
+              <p>We're always shipping something small and useful next.</p>
+            </div>
+            <span class="app-arrow">→</span>
+          </a>
         </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container split">
         <div>
-          <h3>Download</h3>
-          <p>Tap the button to open our Google Play listing. If you have a direct Play Store URL, replace the placeholder in the site script with your app's URL.</p>
-          <a class="cta-btn" href="#" onclick="openPlayStore(event)">Open Google Play</a>
+          <span class="eyebrow">About</span>
+          <h2>A small studio, building carefully</h2>
+          <p>Shobha Hub Apps is a small team focused on utility over feature‑bloat. Every release is tested by hand and updated regularly to stay fast, secure, and reliable.</p>
+          <p class="muted">Have a question or a feature request? <a href="mailto:shobhahubapps@gmail.com">shobhahubapps@gmail.com</a></p>
+        </div>
+        <div class="download-panel">
+          <span class="eyebrow">Get started</span>
+          <h2>Find us on Google Play</h2>
+          <p>Search "Shobha Hub Apps" on the Play Store, or use the button below to jump straight there.</p>
+          <a class="cta-btn" href="#" data-play-link>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 3.5v17a1 1 0 0 0 1.5.87l14.5-8.5a1 1 0 0 0 0-1.74L5.5 2.63A1 1 0 0 0 4 3.5Z" fill="currentColor"/></svg>
+            Open Google Play
+          </a>
         </div>
       </div>
     </section>
 
     <section class="footer-cta">
-      <div class="container">
-        <p>Ready to try our apps? Visit our Google Play page to download.</p>
-        <a class="cta-btn big" href="#" onclick="openPlayStore(event)">Open Google Play</a>
+      <div class="container footer-cta-inner">
+        <div class="glow-strip" aria-hidden="true"></div>
+        <h2>Ready to try our apps?</h2>
+        <p>Lightweight, private, and free to start — see them on Google Play.</p>
+        <a class="cta-btn big" href="#" data-play-link>Open Google Play</a>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Shobha Hub Apps LTD. — <a href="/privacy-policy.html">Privacy Policy</a></p>
+      <p>© <span id="year"></span> Shobha Hub Apps Ltd. — <a href="/privacy-policy.html">Privacy Policy</a></p>
+      <a class="back-top" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top ↑</a>
     </div>
   </footer>
 
