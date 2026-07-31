@@ -1,15 +1,13 @@
-// Small site script for Shobha Hub Apps landing page
-document.getElementById('year').textContent = new Date().getFullYear();
+// Set this to your real Google Play developer page or listing URL.
+const PLAY_STORE_URL = "https://play.google.com/store/apps/dev?id=REPLACE_WITH_YOUR_DEVELOPER_ID";
 
-// Replace the placeholder with your actual Google Play URL for the app or developer page.
-const PLAY_STORE_URL = '#'; // e.g. 'https://play.google.com/store/apps/developer?id=Shobha+Hub+Apps'
+document.addEventListener("DOMContentLoaded", () => {
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-function openPlayStore(e){
-  e && e.preventDefault && e.preventDefault();
-  if (PLAY_STORE_URL && PLAY_STORE_URL !== '#'){
-    window.open(PLAY_STORE_URL, '_blank');
-  } else {
-    // If no URL provided, show a helpful prompt
-    alert('No Play Store link configured. Please update assets/script.js with your Play Store URL.');
-  }
-}
+  document.querySelectorAll("[data-play-link]").forEach((el) => {
+    el.setAttribute("href", PLAY_STORE_URL);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+});
