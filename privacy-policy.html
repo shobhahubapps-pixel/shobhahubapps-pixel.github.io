@@ -1,88 +1,696 @@
-Shobha Hub Apps LTD. ("Shobha Hub Apps," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile applications.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Shobha Hub Apps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F7F7F4;
+    --surface: #FFFFFF;
+    --ink: #14181F;
+    --ink-soft: #3A414C;
+    --muted: #6B7280;
+    --border: #E5E4DF;
+    --accent: #1D7874;
+    --accent-deep: #14524F;
+    --accent-soft: #E7F2F1;
+    --radius: 10px;
+    --content-w: 700px;
+  }
 
-Agreement to This Policy
-By using our apps, you agree to the collection and use of information as described in this Privacy Policy. If you do not agree, please do not use our services.
+  *{ box-sizing: border-box; }
 
-Information We Collect
-Personal Information
+  html{ scroll-behavior: smooth; }
 
-Our apps are designed to minimize data collection. Any personally identifiable information you provide is stored locally on your device and is not transmitted to our servers.
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink-soft);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
 
-Non-Personal Information
+  h1, h2, h3{
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
 
-When you use our apps, we may automatically collect:
+  a{ color: var(--accent-deep); }
 
-Device information (model, operating system version)
-IP address and general location
-App usage statistics
-Language preferences
-Access dates and times
-This information helps us improve our services and identify potential issues.
+  /* ---------- Progress bar ---------- */
+  #progress{
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--accent);
+    z-index: 100;
+    transition: width 0.1s ease-out;
+  }
 
-Log Data
+  /* ---------- Top bar (mobile) ---------- */
+  .topbar{
+    display:none;
+    position: sticky;
+    top:0;
+    z-index: 40;
+    background: rgba(247,247,244,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar .brand{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .topbar select{
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink-soft);
+    max-width: 46vw;
+  }
 
-In case of app errors, we may collect diagnostic information including:
+  /* ---------- Shell layout ---------- */
+  .shell{
+    display: grid;
+    grid-template-columns: 272px 1fr;
+    max-width: 1180px;
+    margin: 0 auto;
+    align-items: start;
+  }
 
-Device IP address
-Device name and OS version
-App configuration details
-Time and date of the error
-Other technical statistics
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 48px 28px 32px 40px;
+    display:flex;
+    flex-direction: column;
+  }
 
-How We Use Your Information
-We use collected information solely to:
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom: 6px;
+  }
 
-Provide and maintain our services
-Identify and fix technical issues
-Analyze app usage patterns
-Improve user experience
-Detect and prevent abuse
-We do not sell, rent, or share your personal information with third parties except as described in this policy.
+  .brand .mark{
+    width: 30px; height: 30px;
+    flex-shrink:0;
+  }
 
-Third-Party Services
-Our apps use the following third-party services that may collect information:
+  .brand-name{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.25;
+  }
 
-Google Play Services - For app functionality and analytics
-Google AdMob - For displaying advertisements
-Facebook Audience Network - For displaying advertisements
-These services may collect device identifiers, IP addresses, and advertising IDs. Please review their privacy policies:
+  .doc-title{
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    margin: 18px 0 26px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
 
-Google Privacy Policy
-AdMob Privacy Policy
-Facebook Privacy Policy
+  nav.toc{
+    display:flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+  }
 
-Cookies
-Our apps do not explicitly use cookies. However, third-party services integrated into our apps may use cookies to improve their services. You can choose to accept or refuse these cookies, though refusing may limit some functionality.
+  nav.toc a{
+    display:flex;
+    gap: 10px;
+    align-items:baseline;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13.5px;
+    padding: 7px 10px;
+    border-radius: 7px;
+    transition: background 0.15s ease, color 0.15s ease;
+    line-height: 1.4;
+  }
+  nav.toc a .n{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #A8ADB5;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  nav.toc a:hover{
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+  }
+  nav.toc a.active{
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 500;
+  }
+  nav.toc a.active .n{ color: var(--accent); }
 
-Data Security
-We take reasonable measures to protect your information using industry-standard security practices. However, no method of electronic transmission or storage is 100% secure, and we cannot guarantee absolute security.
+  .sidebar-foot{
+    margin-top: auto;
+    padding-top: 20px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
 
-Your Rights
-Depending on your location, you may have the right to:
+  /* ---------- Main content ---------- */
+  main{
+    padding: 64px 40px 120px;
+    min-width: 0;
+  }
 
-Access your personal information
-Correct inaccurate data
-Request deletion of your data
-Restrict or object to data processing
-Withdraw consent at any time
-Receive your data in a portable format
-To exercise these rights, please contact us using the information below.
+  .content-inner{
+    max-width: var(--content-w);
+  }
 
-Children's Privacy
-Our apps do not knowingly collect information from children under 13 years of age. If we discover that a child under 13 has provided personal information, we will delete it immediately. Parents or guardians who believe their child has shared information with us should contact us immediately.
+  .eyebrow{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--accent-deep);
+    background: var(--accent-soft);
+    display: inline-block;
+    padding: 5px 11px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+  }
 
-International Data Transfers
-Your information may be transferred to and stored in countries other than your own. We take appropriate measures to ensure your data remains protected in accordance with this Privacy Policy.
+  h1.page-title{
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0 0 14px;
+    line-height: 1.12;
+  }
 
-Links to Other Sites
-Our apps may contain links to third-party websites or services. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before providing any information.
+  .lede{
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0 0 12px;
+  }
 
-Changes to This Policy
-We may update this Privacy Policy periodically. We will notify you of significant changes by posting the updated policy within our apps or on our website. Continued use of our services after changes constitutes acceptance of the updated policy.
+  .meta-row{
+    display:flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 22px 0 52px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta-row span{ display:flex; gap:6px; align-items:center;}
+  .meta-row b{ color: var(--ink-soft); font-weight: 500; }
 
-Contact Us
-If you have questions, concerns, or requests regarding this Privacy Policy, please contact us:
+  section.policy-section{
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 24px;
+  }
+  section.policy-section:first-of-type{ padding-top: 0; }
+  section.policy-section:last-of-type{ border-bottom: none; }
 
-Email: shobhahubapps@gmail.com
+  .sec-head{
+    display:flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .sec-head .n{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    flex-shrink:0;
+  }
+  h2.sec-title{
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+  }
 
-This Privacy Policy applies to all mobile applications published by Shobha Hub Apps Ltd.
+  h3.sub-title{
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 24px 0 8px;
+  }
+
+  p{ margin: 0 0 14px; color: var(--ink-soft); }
+
+  ul.clean-list{
+    margin: 10px 0 14px;
+    padding: 0;
+    list-style: none;
+  }
+  ul.clean-list li{
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 9px;
+    color: var(--ink-soft);
+  }
+  ul.clean-list li::before{
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 10px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin: 16px 0;
+  }
+  .card-title{
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 14.5px;
+    margin-bottom: 4px;
+  }
+
+  .service-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 16px 0 8px;
+  }
+  .service{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 15px 18px;
+  }
+  .service-name{
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+  .service-desc{
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .service a{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--accent-deep);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .service a:hover{
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+
+  .rights-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0 8px;
+  }
+  .right-item{
+    display:flex;
+    gap: 10px;
+    align-items:flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 13px 14px;
+    font-size: 13.8px;
+    color: var(--ink-soft);
+  }
+  .right-item svg{ flex-shrink:0; margin-top: 2px; color: var(--accent); }
+
+  .note{
+    display:flex;
+    gap: 12px;
+    background: var(--accent-soft);
+    border: 1px solid #CFE6E3;
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin: 18px 0 6px;
+    font-size: 14px;
+    color: var(--accent-deep);
+  }
+  .note svg{ flex-shrink:0; margin-top: 2px; }
+
+  .contact-card{
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 32px 34px;
+    margin-top: 18px;
+    color: #EDEFF2;
+  }
+  .contact-card h3{
+    color: #fff;
+    font-size: 19px;
+    margin: 0 0 8px;
+  }
+  .contact-card p{
+    color: #B7BEC9;
+    margin-bottom: 20px;
+    max-width: 46ch;
+  }
+  .mail-btn{
+    display:inline-flex;
+    align-items:center;
+    gap: 9px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration:none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    padding: 11px 18px;
+    border-radius: 100px;
+    transition: background 0.15s ease;
+  }
+  .mail-btn:hover{ background: #16615D; }
+
+  footer.doc-footer{
+    max-width: var(--content-w);
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .back-top{
+    text-decoration:none;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .back-top:hover{ color: var(--accent-deep); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    .shell{ grid-template-columns: 1fr; }
+    .sidebar{ display:none; }
+    .topbar{ display:flex; }
+    main{ padding: 36px 22px 90px; }
+    h1.page-title{ font-size: 30px; }
+    .rights-grid{ grid-template-columns: 1fr; }
+    .meta-row{ gap: 12px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    #progress{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <div class="brand">
+    <svg class="mark" width="22" height="22" viewBox="0 0 32 32" fill="none">
+      <path d="M16 3 L27 8 V16 C27 22.6 22.4 27.6 16 29 C9.6 27.6 5 22.6 5 16 V8 Z" stroke="#1D7874" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M11.5 16 L14.7 19.2 L20.8 12.8" stroke="#1D7874" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Shobha Hub Apps
+  </div>
+  <select id="mobile-nav" aria-label="Jump to section"></select>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="mark" width="30" height="30" viewBox="0 0 32 32" fill="none">
+        <path d="M16 3 L27 8 V16 C27 22.6 22.4 27.6 16 29 C9.6 27.6 5 22.6 5 16 V8 Z" stroke="#1D7874" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M11.5 16 L14.7 19.2 L20.8 12.8" stroke="#1D7874" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-name">Shobha Hub<br>Apps Ltd.</div>
+    </div>
+    <div class="doc-title">PRIVACY_POLICY.MD</div>
+    <nav class="toc" id="toc">
+      <a href="#agreement"><span class="n">01</span>Agreement to This Policy</a>
+      <a href="#information-we-collect"><span class="n">02</span>Information We Collect</a>
+      <a href="#how-we-use"><span class="n">03</span>How We Use Your Information</a>
+      <a href="#third-party"><span class="n">04</span>Third‑Party Services</a>
+      <a href="#cookies"><span class="n">05</span>Cookies</a>
+      <a href="#security"><span class="n">06</span>Data Security</a>
+      <a href="#rights"><span class="n">07</span>Your Rights</a>
+      <a href="#children"><span class="n">08</span>Children's Privacy</a>
+      <a href="#international"><span class="n">09</span>International Transfers</a>
+      <a href="#links"><span class="n">10</span>Links to Other Sites</a>
+      <a href="#changes"><span class="n">11</span>Changes to This Policy</a>
+      <a href="#contact"><span class="n">12</span>Contact Us</a>
+    </nav>
+    <div class="sidebar-foot">© 2026 Shobha Hub Apps Ltd.</div>
+  </aside>
+
+  <main>
+    <div class="content-inner">
+      <span class="eyebrow">LEGAL · APPLIES TO ALL APPS</span>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="lede">Shobha Hub Apps Ltd. ("Shobha Hub Apps," "we," "us," or "our") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information when you use our mobile applications.</p>
+
+      <div class="meta-row">
+        <span>Effective date: <b>January 1, 2026</b></span>
+        <span>Applies to: <b>All published apps</b></span>
+        <span>Contact: <b>shobhahubapps@gmail.com</b></span>
+      </div>
+
+      <section class="policy-section" id="agreement">
+        <div class="sec-head"><span class="n">01</span><h2 class="sec-title">Agreement to This Policy</h2></div>
+        <p>By using our apps, you agree to the collection and use of information as described in this Privacy Policy. If you do not agree, please do not use our services.</p>
+      </section>
+
+      <section class="policy-section" id="information-we-collect">
+        <div class="sec-head"><span class="n">02</span><h2 class="sec-title">Information We Collect</h2></div>
+
+        <h3 class="sub-title">Personal Information</h3>
+        <p>Our apps are designed to minimize data collection. Any personally identifiable information you provide is stored locally on your device and is not transmitted to our servers.</p>
+
+        <h3 class="sub-title">Non‑Personal Information</h3>
+        <p>When you use our apps, we may automatically collect:</p>
+        <ul class="clean-list">
+          <li>Device information (model, operating system version)</li>
+          <li>IP address and general location</li>
+          <li>App usage statistics</li>
+          <li>Language preferences</li>
+          <li>Access dates and times</li>
+        </ul>
+        <p>This information helps us improve our services and identify potential issues.</p>
+
+        <h3 class="sub-title">Log Data</h3>
+        <p>In case of app errors, we may collect diagnostic information including:</p>
+        <ul class="clean-list">
+          <li>Device IP address</li>
+          <li>Device name and OS version</li>
+          <li>App configuration details</li>
+          <li>Time and date of the error</li>
+          <li>Other technical statistics</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="how-we-use">
+        <div class="sec-head"><span class="n">03</span><h2 class="sec-title">How We Use Your Information</h2></div>
+        <p>We use collected information solely to:</p>
+        <ul class="clean-list">
+          <li>Provide and maintain our services</li>
+          <li>Identify and fix technical issues</li>
+          <li>Analyze app usage patterns</li>
+          <li>Improve user experience</li>
+          <li>Detect and prevent abuse</li>
+        </ul>
+        <div class="note">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3 L21 7 V12 C21 17 17 20.5 12 22 C7 20.5 3 17 3 12 V7 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span>We do not sell, rent, or share your personal information with third parties except as described in this policy.</span>
+        </div>
+      </section>
+
+      <section class="policy-section" id="third-party">
+        <div class="sec-head"><span class="n">04</span><h2 class="sec-title">Third‑Party Services</h2></div>
+        <p>Our apps use the following third‑party services that may collect information:</p>
+
+        <div class="service-grid">
+          <div class="service">
+            <div>
+              <div class="service-name">Google Play Services</div>
+              <div class="service-desc">App functionality and analytics</div>
+            </div>
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Their policy ↗</a>
+          </div>
+          <div class="service">
+            <div>
+              <div class="service-name">Google AdMob</div>
+              <div class="service-desc">Displaying advertisements</div>
+            </div>
+            <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">Their policy ↗</a>
+          </div>
+          <div class="service">
+            <div>
+              <div class="service-name">Facebook Audience Network</div>
+              <div class="service-desc">Displaying advertisements</div>
+            </div>
+            <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">Their policy ↗</a>
+          </div>
+        </div>
+        <p>These services may collect device identifiers, IP addresses, and advertising IDs. We encourage you to review each provider's privacy policy using the links above.</p>
+      </section>
+
+      <section class="policy-section" id="cookies">
+        <div class="sec-head"><span class="n">05</span><h2 class="sec-title">Cookies</h2></div>
+        <p>Our apps do not explicitly use cookies. However, third‑party services integrated into our apps may use cookies to improve their services. You can choose to accept or refuse these cookies, though refusing may limit some functionality.</p>
+      </section>
+
+      <section class="policy-section" id="security">
+        <div class="sec-head"><span class="n">06</span><h2 class="sec-title">Data Security</h2></div>
+        <p>We take reasonable measures to protect your information using industry‑standard security practices. However, no method of electronic transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
+      </section>
+
+      <section class="policy-section" id="rights">
+        <div class="sec-head"><span class="n">07</span><h2 class="sec-title">Your Rights</h2></div>
+        <p>Depending on your location, you may have the right to:</p>
+        <div class="rights-grid">
+          <div class="right-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5c-5 0-9 4.5-9 7s4 7 9 7 9-4.5 9-7-4-7-9-7Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>Access your personal information</div>
+          <div class="right-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20h4L20 8l-4-4L4 16v4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Correct inaccurate data</div>
+          <div class="right-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 7h14M9 7V5h6v2M7 7l1 13h8l1-13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Request deletion of your data</div>
+          <div class="right-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Restrict or object to data processing</div>
+          <div class="right-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Withdraw consent at any time</div>
+          <div class="right-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Receive your data in a portable format</div>
+        </div>
+        <p>To exercise these rights, please contact us using the information at the end of this page.</p>
+      </section>
+
+      <section class="policy-section" id="children">
+        <div class="sec-head"><span class="n">08</span><h2 class="sec-title">Children's Privacy</h2></div>
+        <p>Our apps do not knowingly collect information from children under 13 years of age. If we discover that a child under 13 has provided personal information, we will delete it immediately. Parents or guardians who believe their child has shared information with us should contact us immediately.</p>
+      </section>
+
+      <section class="policy-section" id="international">
+        <div class="sec-head"><span class="n">09</span><h2 class="sec-title">International Data Transfers</h2></div>
+        <p>Your information may be transferred to and stored in countries other than your own. We take appropriate measures to ensure your data remains protected in accordance with this Privacy Policy.</p>
+      </section>
+
+      <section class="policy-section" id="links">
+        <div class="sec-head"><span class="n">10</span><h2 class="sec-title">Links to Other Sites</h2></div>
+        <p>Our apps may contain links to third‑party websites or services. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before providing any information.</p>
+      </section>
+
+      <section class="policy-section" id="changes">
+        <div class="sec-head"><span class="n">11</span><h2 class="sec-title">Changes to This Policy</h2></div>
+        <p>We may update this Privacy Policy periodically. We will notify you of significant changes by posting the updated policy within our apps or on our website. Continued use of our services after changes constitutes acceptance of the updated policy.</p>
+      </section>
+
+      <section class="policy-section" id="contact" style="border-bottom:none;">
+        <div class="sec-head"><span class="n">12</span><h2 class="sec-title">Contact Us</h2></div>
+        <p>If you have questions, concerns, or requests regarding this Privacy Policy, please reach out — we're happy to help.</p>
+        <div class="contact-card">
+          <h3>Talk to us about your data</h3>
+          <p>This Privacy Policy applies to all mobile applications published by Shobha Hub Apps Ltd.</p>
+          <a class="mail-btn" href="mailto:shobhahubapps@gmail.com">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="white" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            shobhahubapps@gmail.com
+          </a>
+        </div>
+      </section>
+
+      <footer class="doc-footer">
+        <span>Shobha Hub Apps Ltd. — Privacy Policy</span>
+        <a class="back-top" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back to top
+        </a>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<script>
+  // Build mobile select nav from sidebar TOC
+  const tocLinks = Array.from(document.querySelectorAll('#toc a'));
+  const mobileNav = document.getElementById('mobile-nav');
+  tocLinks.forEach(link => {
+    const opt = document.createElement('option');
+    opt.value = link.getAttribute('href');
+    opt.textContent = link.textContent.replace(/^\d+/, '').trim();
+    mobileNav.appendChild(opt);
+  });
+  mobileNav.addEventListener('change', (e) => {
+    const el = document.querySelector(e.target.value);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // Scroll-spy for sidebar
+  const sections = Array.from(document.querySelectorAll('.policy-section'));
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      const link = document.querySelector(`#toc a[href="#${id}"]`);
+      const opt = mobileNav.querySelector(`option[value="#${id}"]`);
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        if (link) link.classList.add('active');
+        if (opt) mobileNav.value = `#${id}`;
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(sec => spyObserver.observe(sec));
+
+  // Reading progress bar
+  const progressBar = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const height = h.scrollHeight - h.clientHeight;
+    const pct = height > 0 ? (scrolled / height) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+</script>
+
+</body>
+</html>
